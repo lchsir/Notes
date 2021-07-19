@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+</head>
+<body>
+    <button onclick="jsonp()">发起jsonp请求</button>
+    <button onclick="getReq()">发起get请求</button>
+    <script>
+        function getReq() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('get', 'http://localhost:8089/api/data');
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    console.log("结果："+ xmlhttp.responseText)
+                }
+            }
+        }
+
+        // 处理jsonp的全局函数
+        function handleResponse(data) {
+            console.log(data)
+        }
+
+        function jsonp () {
+            // 参数是明文
+            const script = document.createElement("script");
+            script.setAttribute('src', 'http://localhost:3000/api/data2?callback=handleResponse&name=jack&_=1623158312657')
+            document.body.appendChild(script)
+
+            // $.ajax({
+            //     url: 'http://localhost:3000/api/data2',
+            //     data: {name: 'jack'},
+            //     dataType: 'jsonp',
+            //     jsonpCallback: "handleResponse"
+            // })
+        }
+    </script>
+</body>
+</html>
