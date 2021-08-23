@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sendData()">发送</button>
+    <div id="content"></div>
+    <script>
+        function sendData(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("get", "http://localhost:3000/get"); 
+            xmlhttp.send(); //发送
+            xmlhttp.onreadystatechange = function() { //接收数据
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    console.log(xmlhttp.responseText) 
+                    //把拿到的数据展示
+                    content.innerHTML = xmlhttp.responseText; 
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
