@@ -27,5 +27,9 @@ window.onload = function(){
     });
     console.log(1000);  //同步
     //88 1000  999
+
+
+
+
     
 }
