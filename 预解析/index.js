@@ -1,4 +1,6 @@
   
+  // *预解析： 把变量或函数预先解析到它们被使用的环境中 --- 变态机制（关系户，走后门）
+
   
   // 拓展练习一
   console.log(a, b, c, d, e)
@@ -49,3 +51,8 @@
   a = 3
   console.log(a)  // 3
   console.log(a)  // 3
+
+  var a = []
+  console.log(typeof a)
+
+
