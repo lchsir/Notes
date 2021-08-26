@@ -77,7 +77,7 @@ window.onload = function(){
         this.name = name;
         this.id = id;
         this.age = age;
-        // !!!放到里边每次都创建，不环保、占用内存，故放到原型中
+        // !!!放到里边每次都创建，不环保、占用内存，效率低，故放到原型中
         //this.type = '动物';
         //this.eat = function(){console.log('吃鱼')}; 
     };
@@ -88,6 +88,13 @@ window.onload = function(){
     var o2 = new Cat('o2',2,1);
     o1.type;
     o2.eat();
+
+
+    // !!! 构造函数、原型对象的不同
+    // 例：Cat 是构造函数，Cat.prototype构造函数的原型对象
+
+    // 构造函数：自己的属性、方法无法实现共享。目的：生成对象的模板
+    // 原型对象：可以被所有的实列对象共享。
 
 
     
