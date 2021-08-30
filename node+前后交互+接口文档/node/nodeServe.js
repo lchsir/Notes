@@ -1,6 +1,6 @@
-var express = require("express")
+var express = require("express") // 引入express, 加载依赖包
 var bodyParser = require('body-parser');   //body解析
-var app = express();
+var app = express(); // 创建服务器
 
 var arr = []
 
