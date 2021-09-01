@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <style>
+        .hello {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+     <div id="root1"></div>
+     <script type='text/babel'>
+        let name = 'casey'
+        let flag = false
+        let id = 'hello'
+        let div = <div>
+                <h1 className='hello' id={id}>hello {name}</h1>
+                <p>{flag ? 'hello': 'hahaha'}</p>
+            </div>
+        ReactDOM.render(div, document.getElementById('root1'))
+    </script>
+</body>
+</html>
+

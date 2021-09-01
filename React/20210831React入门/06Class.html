@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS生成实例对象的传统方法是通过构造函数
+        function Person(x, y) {
+            this.x = x
+            this.y = y
+        }
+        Person.prototype.add = function() {
+            console.log(this.x + this.y)
+        }
+        let p = new Person(1, 2)
+
+        // 上面的代码用ES6的Class改写
+        class Persons {
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+            add() {
+                console.log(this.x + this.y)
+            }
+        }
+        // 类本身就是指向构造函数
+        typeof Persons // "function"
+        Persons === Persons.prototype.constructor 
+
+        // class Persons{
+        //     constructor(){}
+        //     add() {}
+        // }
+        // // 等同于
+        // Persons.prototype = {
+        //     constructor(){},
+        //     add() {}
+        // }
+
+        class Hello {
+            constructor(x, y) {
+                this.x = x
+                // this.add = this.add.bind(this)
+            }
+            add() {
+                console.log(this.x)
+            }
+        }
+        let hello = new Hello(2)
+        hello.add() // 2
+        hello.hasOwnProperty('x') // true
+        hello.hasOwnProperty('y') // false
+        hello.hasOwnProperty('add') // fasle
+        hello.__proto__.hasOwnProperty('add')
+
+    </script>
+</body>
+</html>

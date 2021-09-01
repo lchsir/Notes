@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root1"></div>
+  <script type='text/babel'>
+    function tick() {
+      let time = new Date().toLocaleTimeString()
+
+      let template = <div>
+        <h1>hello 华子</h1>
+        <h2>现在是：{time}</h2>
+      </div>
+
+      ReactDOM.render(template, document.getElementById('root1'))
+    }
+
+    // tick()
+
+    setInterval(tick, 1000)
+
+  </script>
+</body>
+
+</html>
