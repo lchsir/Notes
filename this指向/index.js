@@ -31,7 +31,7 @@ test(function(n){
 // 改变this的指向apply、call、bind
 
 // apply、call 
-// a.apply(b)  // 将a中的成员放到b中，this直接指向b
+// !!! a.apply(b)  // 将a中的成员放到b中，this直接指向b
 function o1(name, color) {
   this.name = name
   this.color = color

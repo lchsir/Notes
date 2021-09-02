@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root1"></div>
+    <script type="text/babel">
+        function Login(props) {
+            // return <button>login</button>
+            return <button onClick={props.updated}>login</button>
+        }
+
+        function Logout(props) {
+            // return <button>logout</button>
+            return <button onClick={props.updated}>logout</button>
+        }
+
+        class App extends React.Component {
+            state = {
+                isLogin: false
+            }
+
+            updateState = () => {
+                this.setState({
+                    isLogin: !this.state.isLogin
+                })
+            }
+
+            render() {
+                // const isLogin = this.state.isLogin
+                const { isLogin } = this.state
+                return <div>
+                        <h1>这是一个有状态组件</h1>
+                        {isLogin ? <Login/> : <Logout/>}
+                        <button onClick={this.updateState}>更改状态</button>
+                        <hr/>
+                        {
+                            isLogin ? 
+                            <Login updated={this.updateState} />
+                            : <Logout updated={this.updateState}/>
+                        }
+                    </div>
+            }
+        }
+        
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+</html>

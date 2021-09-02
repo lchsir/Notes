@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React学习</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root1"></div>
+  <script type="text/babel">
+    // 1、无状态组件
+    // function App(props) {
+    //   return <div>{props.name}</div>
+    // }
+
+    // 2、有状态组件
+    class App extends React.Component {
+      // 2-1 状态值在constructor中写
+      constructor(props) { // 子类必须在constructor构造器中调用super方法,从而得到父类的this对象，否则就会报错
+        super(props) // super是把属性传递给父级的构造类对象
+        this.state = {
+          name: props.name,
+          age: props.age || 0
+        }
+        this.clickThis = this.clickThis.bind(this)
+      }
+
+      // 简写的状态值，不写在constructor中，直接写在外边
+      // state = {
+      //   name: '刘家小生',
+      //   age: 20
+      // }
+
+      // 2-2 DOM渲染
+      render() {
+        console.log('this.props', this.props) // 接受父组件的值
+        return <div>
+          <ul>
+            <li>姓名：{this.state.name}</li>
+            <li>年龄：{this.state.age}</li>
+            <li>性别：{this.props.sex}</li>
+          </ul>
+
+          <button onClick={() => this.clickEs6()}>点击[es6]</button>
+          <button onClick={this.clickThis.bind(this)}>点击[this指向]</button>
+        </div>
+
+        // 事件的另一种写法
+        // <button onClick={this.clickEs6}>点击[es6]</button>
+        // <button onClick={this.clickThis}>点击[this指向]</button>
+
+      }
+
+      // 事件处理 [es6]
+      clickEs6 = () => {
+        this.setState({
+          age: ++this.state.age
+        })
+      }
+      // [this指向] 需要在constructor中改变toggleData1的指向，同31行
+      clickThis() {
+        this.setState({
+          age: ++this.state.age
+        })
+      }
+    }
+
+    ReactDOM.render(
+      <App sex={'男'} name={'张三'} />,
+      document.getElementById('root1')
+    )
+  </script>
+</body>
+
+</html>

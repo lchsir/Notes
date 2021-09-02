@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root1"></div>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            // 有状态组件必须使用render方法进行渲染,是生命周期里面非常基础和底层的方法
+            render() {
+                console.log(this.props)
+                return <div>
+                        <h1>这是一个有状态组件</h1>
+                        <p>姓名：{this.props.name}</p>
+                        <p>年龄：{this.props.age}</p>
+                        <p>性别：女</p>
+                        <p>经验：10年</p>
+                    </div>
+            }
+        }
+
+        ReactDOM.render(
+            <Hello name="甜甜" age="18"/>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+</html>

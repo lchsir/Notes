@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root1"></div>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            constructor(props) {
+                // super是把属性传递给父级的构造类对象
+                // 子类必须在constructor构造器中调用super方法,从而得到父类的this对象，否则就会报错
+                super(props)
+                this.state = {
+                    name: 'zeness',
+                    age: 12
+                }
+                // console.log(props);
+                // console.log(this.props);
+            }
+            render() {
+                return <div>
+                        <h1>这是一个有状态组件</h1>
+                        <p>姓名：{this.state.name}</p>
+                        <p>年龄：{this.state.age}</p>
+                        <p>性别：{this.props.sex}</p>
+                        <p>经验：10年</p>
+                    </div>
+            }
+        }
+
+        ReactDOM.render(
+            <Hello sex='女'/>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+</html>

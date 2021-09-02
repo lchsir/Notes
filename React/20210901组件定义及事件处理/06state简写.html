@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root1"></div>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            state = {
+                name: '快乐',
+                age: 8
+            }
+
+            render() {
+                return <div>
+                        <h1>这是一个有状态组件</h1>
+                        <p>姓名：{this.state.name}</p>
+                        <p>年龄：{this.state.age}</p>
+                        <p>性别：{this.props.sex}</p>
+                        <p>经验：10年</p>
+                    </div>
+            }
+        }
+
+        ReactDOM.render(
+            <Hello sex='男'/>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+</html>
