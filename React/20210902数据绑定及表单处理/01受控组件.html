@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Hello extends React.Component {
+      render() {
+        return <input type="text" value="123" />
+      }
+    }
+    ReactDOM.render(<Hello />, document.getElementById('root'))
+  </script>
+
+  <!-- 双向数据绑定实现 -->
+  <hr />
+  <div id="root2"></div>
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          value: 'hello'
+        }
+      }
+
+      change = (e) => {
+        console.log(e.target.value)
+        this.setState({
+          value: e.target.value
+        })
+      }
+
+      render() {
+        return <div>
+          <input type="text" value={this.state.value} onChange={this.change} />
+          <p>value:{this.state.value}</p>
+        </div>
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById('root2'))
+  </script>
+
+  <hr />
+  <div id="root3"></div>
+  <script type="text/babel">
+    class Rts extends React.Component {
+      render() {
+        return <div>
+          <input type="radio" checked />
+          <input type="checkbox" checked />
+          <input type="checkbox" checked />
+          <input type="checkbox" checked />
+          <select value="A">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+      }
+    }
+    ReactDOM.render(<Rts />, document.getElementById('root3'))
+  </script>
+</body>
+
+</html>

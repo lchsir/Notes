@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <script>
+    // 获取画布元素
+    var canvas = document.getElementById('canvas')
+    // 获取二维绘图对象
+    var ctx = canvas.getContext('2d')
+    // 设置线宽
+    ctx.lineWidth = 3
+    ctx.strokeStyle = 'red' // 线条颜色
+    ctx.fillStyle = 'blue'
+
+
+    ctx.moveTo(10, 10) // 画布的起点
+    // 下一点
+    ctx.lineTo(100, 10)
+    ctx.lineTo(100, 100)
+    // ctx.lineTo(10, 100)
+    ctx.lineTo(10, 10)
+    ctx.stroke()
+    ctx.fill()
+
+
+    ctx.moveTo(300, 10) // 画布的起点
+    ctx.moveTo(100, 10) // 画布的起点
+    ctx.stroke()
+
+
+  </script>
+</body>
+
+</html>

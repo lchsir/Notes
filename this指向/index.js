@@ -67,13 +67,3 @@ console.log(x2.call(obj2)) // 绑定之后是不能再改变this的指向的
 
 
 // !!! 自执行函数内部的this指向window
-
-
-
-
-
-
-
-
-
-

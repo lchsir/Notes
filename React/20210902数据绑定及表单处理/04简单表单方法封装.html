@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Rts extends React.Component {
+            state = {
+                name: '',
+                password: '',
+                text: 'hello react'
+            }
+
+            handleChange = (e) => {
+                // let name = e.target.name
+                this.setState({[e.target.name]: e.target.value})
+            }
+
+            handleSubmit = () => {
+                console.log(this.state);
+            }
+
+            render() {
+                let { name, password, text } = this.state
+                return <div>
+                    <form>
+                        <label>姓名：
+                            <input name="name" type="text" defaultValue={name} onChange={this.handleChange} />
+                        </label>
+                        <br/>
+                        <label>密码：
+                            <input name="password" type="password" defaultValue={password} onChange={this.handleChange} />
+                        </label>
+                        <br/>
+                        <br/>
+                        <label>备注信息：
+                            <textarea name="text" defaultValue={text} onChange={this.handleChange}></textarea>
+                        </label>
+                    </form>
+                    <button onClick={this.handleSubmit}>提交</button>
+                </div>
+            }
+        }
+        ReactDOM.render(<Rts />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>
