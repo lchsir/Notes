@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Test extends React.Component {
+      state = {
+        list: [
+          {
+            id: 1,
+            name: '张三'
+          },
+          {
+            id: 2,
+            name: '李四'
+          }
+        ]
+      }
+
+      render() {
+        return (
+          <div>
+            {this.state.list.map((item, index) => <span key={item.id}>{item.name}</span>)}
+            <hr />
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<Test />, document.getElementById('root'))
+  </script>
+</body>
+
+</html>
