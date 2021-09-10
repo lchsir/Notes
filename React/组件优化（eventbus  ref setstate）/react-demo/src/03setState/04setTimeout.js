@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// 在setTimeout是同步的
+// 在setTimeout中是同步的
 export class App extends Component {
     state = {
         count: 0
