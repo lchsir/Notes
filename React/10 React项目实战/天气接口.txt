@@ -1,0 +1,2 @@
+https://www.nowapi.com/api/weather.today
+测试示例: http://api.k780.com/?app=weather.today&weaId=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json (示例中sign会不定期调整)
