@@ -22,11 +22,15 @@ class Index extends Component {
         return data.map(item => {
             if(item.children) {
                 return <SubMenu title={item.title} key={item.key}>
-                    {
+                    {/* {
                         item.children.map(items => {
                             console.log(items)
                             return <Menu.Item title={items.title} key={items.key}>{items.title}</Menu.Item>
                         })
+                    } */}
+                    {/* 递归写法 */}
+                    {
+                      this.getMenuItem(item.children)
                     }
                 </SubMenu>
             } else {
