@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter, NavLink, Route, Switch, withRouter } from 'react-router-dom'
 
+// 总结
+// About组件中嵌套了Home组件，如果Home组件中要使用路由信息，必须使用withRouter
+
 function Home(a) {
-    console.log(a)  // 一个空对象
+    console.log(a)  // 一个空对象，如果不使用高阶组件
     return (
         <div>
             <h1>Home</h1>
@@ -26,7 +29,7 @@ const About = (a) => {
         <div>
             <h2>About</h2>
             <button onClick={() => {jump()}}>跳转</button>
-            {/* 使用高阶组件,这样就有history */}
+            {/* 使用高阶组件,这样第5行就有history */}
             <Homes/>
         </div>
     )

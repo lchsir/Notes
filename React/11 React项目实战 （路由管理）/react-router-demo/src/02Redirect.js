@@ -7,6 +7,7 @@ class Login extends Component {
             <div>
                 <h1>登录</h1>
                 <Redirect to='/user'/>
+                {/* 将登陆页面路由重定向到/user */}
             </div>
         )
     }
