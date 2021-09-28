@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, NavLink, Route, Switch, withRouter } from 'react-router-dom'
+import { BrowserRouter, NavLink, Link, Route, Switch, withRouter } from 'react-router-dom'
 
 // 总结
 // About组件中嵌套了Home组件，如果Home组件中要使用路由信息，必须使用withRouter
@@ -50,7 +50,8 @@ export class App extends Component {
                     <ul>
                         <li><NavLink to='/home'>首页</NavLink></li>
                         <li><NavLink activeStyle={{'color': 'yellow'}} to='/about'>关于</NavLink></li>
-                        <li><NavLink to='/user'>用户中心</NavLink></li>
+                        <li><Link to='/user'>用户中心</Link></li>
+                        {/* NavLink可以设置样式 */}
                     </ul>
                     <Switch>
                         <Route path='/home' exact component={Home}/>

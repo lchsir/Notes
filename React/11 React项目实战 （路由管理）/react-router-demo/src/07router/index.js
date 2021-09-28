@@ -19,7 +19,7 @@ const routes = [
         component: About,
         routes: [
             {
-                path: '/about/son',
+                path: '/about/son', // 此处还未显示页面，后边扩展，子组件需要路由出口
                 exact: true,
                 component: Son
             }

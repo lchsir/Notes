@@ -19,8 +19,11 @@ class UserDetail extends Component {
     render() {
         console.log(this.props)
         console.log(querystring.parse(this.props.location.search))
+        
+        // 1、接受【对象】形式的参数
+        let { name, age } = this.props.location.state
+        // 2、接受【字符串】形式的参数 -- querystring
         let { name, age } = querystring.parse(this.props.location.search)
-        // let { name, age } = this.props.location.state
         return <div>
             <h2>用户详情</h2>
             <h2>用户姓名： {name} ---用户年领：{age}</h2>
@@ -39,7 +42,9 @@ export class APP extends Component {
                         <li><Link to={
                             {
                                 pathname: '/userdetail', // 跳转的路径
-                                // state: {name: 'casey', age: 18} // 传递的数据
+                                // 1、对象形式：
+                                state: {name: 'casey', age: 18},
+                                // 2、字符串形式
                                 search: 'name=hahaha&age=18'
                             }
                         }>用户详情</Link></li>
