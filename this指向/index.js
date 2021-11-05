@@ -6,6 +6,7 @@
 // •	如果是call，apply等，指定的this是谁，就是谁。
 // 注意：this定义：只能在函数内部使用
 // 指向规则：判断有没有调用者，如果有调用者指向调用者，没有指向window，严格模式下指向undefined
+// !!! 自执行函数内部的this指向window
 
 
 // 1、内置函数 setTimeout、setInterval
@@ -58,7 +59,7 @@ var o2 = {};
 // o1对象在o2中执行，此时o1 指向 02
 o1.apply(o2, ['o2', 'o2'])
 o1.call(o2, 'o2', 'o2')
-o2.name
+o2.name // o2
 
 // !!!注: bind指向发生变化后，就不能再改回去了
 var num = 10;
@@ -79,7 +80,4 @@ var obj2 = {
 var x2 = test.bind(obj) // x2() = 5, this的指向变更为obj, this.num = obj.num
 var x2 = test.bind(obj2) // x2() = 999, this的指向变更为obj2, this.num = obj2.num
 x2();
-console.log(x2.call(obj2)) // 绑定之后是不能再改变this的指向的
-
-
-// !!! 自执行函数内部的this指向window
+console.log(x2.call(obj2)) // 注意：绑定之后是不能再改变this的指向的
