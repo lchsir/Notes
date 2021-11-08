@@ -47,7 +47,7 @@ export class App extends Component {
     }
 
     insertDataNice = () => {
-        // 如果徐亚改变数据的数据内容，那么就拷贝一份数组再操作
+        // 如果非要改变数据的数据内容，那么就拷贝一份数组再操作
         let newStudents = [...this.state.studnets]
         let obj = { id: 4, name: 'casey', age: 18 }
         newStudents.push(obj)
