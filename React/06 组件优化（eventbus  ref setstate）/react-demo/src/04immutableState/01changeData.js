@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class App extends Component {
     state = {
-        studnets: [
+        students: [
             { id: 1, name: '小红', age: 12 },
             { id: 2, name: '小蓝', age: 13 },
             { id: 3, name: '小明', age: 14 }
@@ -15,7 +15,7 @@ export class App extends Component {
                 <h2>学生列表</h2>
                 <ul>
                     {
-                        this.state.studnets.map((item) => {
+                        this.state.students.map((item) => {
                             return (
                                 <li key={item.id}>
                                     <span>姓名：{item.name}</span>
@@ -33,14 +33,14 @@ export class App extends Component {
 
     insertData = () => {
         let obj = { id: 4, name: 'casey', age: 18 }
-        this.state.studnets.push(obj)
-        this.setState({studnets: this.state.studnets})
+        this.state.students.push(obj)
+        this.setState({students: this.state.students})
     }
 
-    // shouldComponentUpdate里会去对比nextState.studnets和this.state.studnets，这个时候它们的地址是一样的
+    // shouldComponentUpdate里会去对比nextState.students和this.state.students，这个时候它们的地址是一样的
     // 就会直接return false导致不再更新渲染
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextState.studnets !== this.state.studnets) {
+        if (nextState.students !== this.state.students) {
             return true
         }
         return false
@@ -48,10 +48,10 @@ export class App extends Component {
 
     insertDataNice = () => {
         // 如果非要改变数据的数据内容，那么就拷贝一份数组再操作
-        let newStudents = [...this.state.studnets]
+        let newStudents = [...this.state.students]
         let obj = { id: 4, name: 'casey', age: 18 }
         newStudents.push(obj)
-        this.setState({studnets: newStudents})
+        this.setState({students: newStudents})
     }
 }
 
