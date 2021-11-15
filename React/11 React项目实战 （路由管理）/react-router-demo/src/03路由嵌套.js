@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 
+//嵌套：就是在子页面中再设置一层新的路由导航规则(/color/red)
 function Color() {
     return (
         <h1>颜色</h1>
