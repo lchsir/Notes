@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, NavLink, Link, Route, Switch, withRouter } from 'react-router-dom'
 
-// 总结
+// 总结 TODO:
 // About组件中嵌套了Home组件，如果Home组件中要使用路由信息，必须使用withRouter
 
 function Home(a) {
