@@ -12,10 +12,10 @@ login()
 logout() */
 
 // 优化：写一个中间函数,中间函数的功能就是读取username,这个函数还需要负责把username传递给两个函数
-function propUsername(call) {
+function propUsername(callback) {
     function getUsername() {
         const username = 'admin'
-        call(username)
+        callback(username)
     }
     return getUsername
 }
