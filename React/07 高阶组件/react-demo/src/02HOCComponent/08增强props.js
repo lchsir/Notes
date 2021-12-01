@@ -30,10 +30,9 @@ class Boy extends Component {
 // 用高阶组件实现
 const PropsComponent = (Component) => {
     // 返回一个函数式组件
-    const newComponent = (props) => {
+    return (props) => {
         return <Component {...props} age='15' hobby='吃饭睡觉打豆豆' />
     }
-    return newComponent
 }
 
 const PropsPeople = PropsComponent(People)
