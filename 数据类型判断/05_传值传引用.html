@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传值和传引用</title>
+</head>
+<body>
+    <script>
+        // 传值和传引用的区别，值不会改变，引用会互相改变
+        function val(val) {
+            val = 123;
+        }
+        var n = 3;
+        val(n);
+        console.log('n:',n); //  3
+
+        function val2(obj) {
+            obj.v = 123;
+        }
+        var obj = { v: 3};
+        val2(obj);
+        console.log('obj:',obj.v); 
+    </script>
+</body>
+</html>

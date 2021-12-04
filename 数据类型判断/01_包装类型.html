@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    //    【包装类型】(了解)
+    // /  弄清楚转型函数和构造函数的区别
+let a = 2
+let b = Number(2)
+let c = new Number(2); // 构造函数 =>  基本数据类型 => 包装类型
+// java 强类型语言   每一行代码的变量必须有数据类型的声明 
+// 包装类型实现自动，基本 <=> 引用(特定方法) 自动互换  =>  自动装拆箱
+// 包装类型：包装【基本数据类型】到引用数据类型，同时提供自动转换（装拆箱）
+
+console.log('a字面量:',a)  // 2
+console.log('b函数调用的数字:',b)  // 2
+console.log('c包装类型:',c)  // 对象2
+
+
+// JavaScript 是一个弱类型的语言， js阅历的谈资
+
+console.log(a === b) // true
+console.log(a === c) // false 类型不同
+console.log(a == c) // true 隐式类型转换后相等
+console.log(typeof a) // Number
+console.log(typeof b) // Number
+console.log(typeof c) // Object
+
+
+// instanceof 从对象本身逐渐向上找原型链,只要是发现原型属于该类型，就会返回true
+console.log(c instanceof Number) // true
+console.log(c instanceof Object) // true
+
+// 如何进行数据类型的判断:  1. 第三方的一些工具函数, _ underscore $ lodash
+// 自身判断: 基本数据类型 typeof 判断
+// 引用数据类型 instanceof + isNaN + Array.isArray(type === 'object')
+
+
+
+// 互动题目：
+        // var num1 = new Number(3); // Number  => typeof number || object
+        // var num2 = new Number(3);
+
+        // console.log(num1==num2);  // 类型转换 false ，对于 判断的两边都是引用数据类型，对比的就是地址，不会进行转换
+        // // js 中 两个引用数据类型对比，不存在转换，对比指向、地址、指针
+        // console.log(num1 == 3);   // 类型转换 true
+        // console.log(num1 === 3);  // false
+
+        var f = new Boolean(false);
+        console.log(f);
+        if(f){ 
+            alert("你搞错啦!!!"); 
+        }  
+ 
+        // new 基本数据类型包装类的使用在弱类型js中并不多，知道这个东西，认识new String();即可
+        // 自动装拆箱，基于 对比时有对应的基本数据类型  解析器才可用知道并(==)进行转换
+        // 包装类型 == 基本类型
+        // 引用类型 == 引用类型 ||  包装类型 == 包装类型 无法进行转换
+        // === 【严格的进行比较，不进行数据转换】
+        // 类型判断：基本  typeof   引用 instanceof + typeof
+
+   </script> 
+</body>
+</html>

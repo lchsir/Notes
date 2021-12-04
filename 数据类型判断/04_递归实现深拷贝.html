@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var coreObj = {
+            name:'Green',
+            arr:[1,2,3],
+            eat:function(){
+                console.log('巴拉巴拉！！');
+            }
+        }
+        // $.deepClone
+        function deepClone(dest={},obj) {
+            // 循环obj数组或者对象
+            for (var key in obj) {
+                // 判断类型，如果是对象，或者是数组，
+                // typeof object
+                if (typeof obj[key] === 'object') {
+                    // 不是对象就是数组
+                    if(Array.isArray(obj[key]) ) { // 对象
+                        dest[key] = [];
+                    } else {// 对象
+                        dest[key] = {};
+                    }   
+                    deepClone(dest[key],obj[key]);
+                } else {
+                    //基本数据类型 + 函数
+                    dest[key] = obj[key];
+                }
+            }
+            return dest;
+        }
+
+
+        let newObj = deepClone({},coreObj);
+        console.log(newObj);
+    </script>
+</body>
+</html>

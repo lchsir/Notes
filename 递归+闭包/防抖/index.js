@@ -6,9 +6,24 @@ function debounce(fun, wait) {
     let _this = this
     let arg = arguments
 
-    clearTimeout(timeout)
+    if (timeout) {
+      clearTimeout(timeout)
+    }
     timeout = setTimeout(function(){
       fun.apply(_this, arg)
     }, wait)
   }
 }
+
+function debounce(fun, wait) {
+  let timeout;
+  return function() {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(function(){
+      fun()
+    }, wait)
+  }
+}
+

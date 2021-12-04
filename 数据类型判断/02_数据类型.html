@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类型比较的扩展</title>
+</head>
+
+<body>
+
+  <script>
+    // 引用数据类型判断方式的扩展
+    function Person() { }
+    var p = new Person();
+
+    // 1、typeof (基本类型)
+    console.log(typeof p)
+
+    // 2、instanceof （引用类型）
+    console.log(p instanceof Person); // 一夫多妻，走原型链
+    console.log(p instanceof Object); // 一夫多妻，走原型链
+
+    // 3、构造函数判断（实例.constructor）
+    console.log(p.constructor === Person);
+
+    // 4、toString （Object.protype.toString）
+    // Person没有重写Object的toString,看起来没有个性
+    // console.log(p.toString()); // 所有的对象都从Object获取到toString函数，但是大部分自身重写了该
+    // 还是调用祖宗的toString方法，改变方法内的this指向，就可以形成每个不同类型的个性化toString();
+    // console.log(Object.prototype.toString.call(p))
+
+
+    console.log(Object.prototype.toString.call(1))
+    console.log(Object.prototype.toString.call('a'))
+    console.log(Object.prototype.toString.call(false))
+    console.log(Object.prototype.toString.call(document))
+    // console.log(Object.prototype.toString.call(null))
+    console.dir(document)
+
+
+  </script>
+</body>
+
+</html>

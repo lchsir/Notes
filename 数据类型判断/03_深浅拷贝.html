@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深浅拷贝</title>
+</head>
+<body>
+    
+    <script>
+        // 浅拷贝，将引用直接交给对方，对方和你是同一个引用指向的数据，你改了影响他，他改了影响你
+        // 深拷贝，完全重新做一个，你俩无关
+
+
+        //  浅拷贝
+        var o1 = { o:1};
+                // 基本     引用
+        var r2 = { r:2 ,arr:[1,2,3]};  
+        // 基本数据类型传递的非引用而是值，不存在 深浅拷贝之说，都不会影响，引用数据类型，此时效果是【浅拷贝】
+        // 合并对象  Object.assign
+        Object.assign(o1,r2);
+        console.log('o1:',o1);
+        // ES6中的浅拷贝
+        console.log('----------');
+
+        // 展开运算符
+        var o3 = { o:3,arr1:[1,2,3]};
+        var o4 = {
+            name:'o4',
+            ...o3
+        }
+        console.log('o4:',o4);
+        // 浅拷贝是好还是坏: 从坏的角度来说，一个对象如果传递的数据链越广泛，每个模块假如都去修改其值（浅拷贝），逻辑稀烂！
+        // 好的角度来说: 浅拷贝，实现比较方便，如果实现深拷贝，则需要耗费更多的内存空间
+
+
+        // 不浅不深的拷贝
+        var arr1 = ['a','b', [1,2] ];
+        // concat 拼接新数组，返回一个拼接后的数组， slice(start,end)获取新数组
+        // var arr2 = arr1.concat([]);  // 【对数组进行新建】
+        var arr2 = arr1.slice(0,999);  // 【对数组进行新建】
+        console.log(arr1 === arr2,'数组')
+        // 函数返回的数组是深拷贝的新数组，其中的元素是浅拷贝的
+
+        // 铁定的深拷贝
+        var obj = {
+            name:'Green',
+            arr:[1,2,3],
+            eat:function(){
+                console.log('巴拉巴拉！！');
+            }
+        }
+        // 将对象序列化成字符串，然后再反序列化成对象,没有函数的，因为json格式，就不存在函数
+        let obj2 = JSON.parse(JSON.stringify(obj));
+        console.log('obj:',obj)
+        // JSON不等同js对象  ,json格式可以是一个字符串，一个数组，数组，对象，不能有函数，undefined值，key需要引号
+
+
+
+
+
+
+    </script>
+</body>
+</html>

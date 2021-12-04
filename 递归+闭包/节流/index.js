@@ -1,4 +1,4 @@
-// 节流：设置一个时间，在这个时间内无论你触发多少次事件，只会有一个定时器，等待后只执行一次
+// 节流： 一段时间内，只执行一次某个操作，过了这段时间，还有操作的话，继续执行新的操作
 
 
 // 时间戳
@@ -27,14 +27,12 @@ function throttle(fun, wait) {
   return function() {
     _this = this;
     args = arguments;
-    
-    if (!timeout) {
-      timeout = setTimeout(function() {
-        fun.apply(_this, args)
-        timeout = null
-      }, wait)
+    if (timeout) {
+      return
     }
-
+    timeout = setTimeout(function() {
+      fun.apply(_this, args)
+      clearTimeout(timeout)
+    }, wait)
   }
 }
-
