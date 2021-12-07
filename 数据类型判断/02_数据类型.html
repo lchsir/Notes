@@ -25,7 +25,7 @@
     // 3、构造函数判断（实例.constructor）
     console.log(p.constructor === Person);
 
-    // 4、toString （Object.protype.toString）
+    // 4、toString （Object.prototype.toString）
     // Person没有重写Object的toString,看起来没有个性
     // console.log(p.toString()); // 所有的对象都从Object获取到toString函数，但是大部分自身重写了该
     // 还是调用祖宗的toString方法，改变方法内的this指向，就可以形成每个不同类型的个性化toString();
@@ -38,7 +38,6 @@
     console.log(Object.prototype.toString.call(document))
     // console.log(Object.prototype.toString.call(null))
     console.dir(document)
-
 
   </script>
 </body>

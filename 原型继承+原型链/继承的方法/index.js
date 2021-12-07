@@ -1,5 +1,5 @@
 window.onload = function(){
-    // 原型继承
+    // 1、原型继承
     // 优点：同一个原型对象
     // 缺点：不能修改原型对象，会影响所有的实例
     function Animal(){   //  Animal构造函数
@@ -19,7 +19,7 @@ window.onload = function(){
     c2.type
 
 
-    // 构造函数的继承
+    // 2、构造函数的继承
     // 性质：把一个对象的成员放到了目标对象上（相当于复制），并未实现继承的关系
     // 优点：各自拥有独立的属性，不存在修改原型对象影响所有实例，（因为会优先取自己的属性）
     // 缺点：父类成员会被多次创建，存在冗余且不是同一个原型对象
@@ -47,7 +47,7 @@ window.onload = function(){
     // Cat.call(o,'tom','white');
     // o.name
 
-    //组合继承
+    // 3、组合继承
     function Animal(){   //  Animal构造函数
         this.type = "动物";
     };
