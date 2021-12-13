@@ -3,8 +3,6 @@ const arr = [4,2,6,5,1,8,7,3,9]
 // 1、冒泡排序
 // 思想：让数组中的当前项和后一项进行比较，如果当前项比后一项大，则大的靠后，交换位置
 
-
-
 function bubble(arr) {
   // 外层循环控制比较的轮数
   let temp = null;
@@ -28,9 +26,6 @@ function bubble(arr) {
 }
 
 console.log(bubble(arr))
-
-
-
 
 
 
