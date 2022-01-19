@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  12.20.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EINVAL: invalid argument, unlink '/Users/lchsir/Downloads/学习资料/Notes/Vue3/vue3-project/node_modules/node-sass/node_modules/chalk'
+
+npm manifest: 
+  {
+    "name": "vue3-project",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "serve": "vue-cli-service serve",
+      "build": "vue-cli-service build"
+    },
+    "dependencies": {
+      "ant-design-vue": "^2.2.8",
+      "core-js": "^3.6.5",
+      "vue": "^3.0.0",
+      "vue-router": "^4.0.0-0",
+      "scss": "^0.2.4",
+      "scss-loader": "0.0.1",
+      "vuex": "^4.0.0-0",
+      "nprogress": "0.2.0"
+    },
+    "devDependencies": {
+      "@vue/cli-plugin-babel": "~4.5.0",
+      "@vue/cli-plugin-router": "~4.5.0",
+      "@vue/cli-plugin-vuex": "~4.5.0",
+      "@vue/cli-service": "~4.5.0",
+      "@vue/compiler-sfc": "^3.0.0",
+      "node-sass": "^4.14.1",
+      "sass-loader": "^8.0.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
