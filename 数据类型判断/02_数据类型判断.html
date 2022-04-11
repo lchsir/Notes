@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类型比较的扩展</title>
+</head>
+
+<body>
+
+  <script>
+    // 引用数据类型判断方式的扩展
+    function Person () { }
+    var p = new Person();
+
+    // 1、typeof (基本类型)
+    console.log(typeof p)
+
+    // 2、instanceof （引用类型）---->   一夫多妻，走原型链
+    console.log(p instanceof Person);
+    console.log(p instanceof Object);
+
+    // 3、构造函数判断（实例.constructor）---->  除了null，undefined
+    console.log(p.constructor === Person);
+
+    // 4、toString （Object.prototype.toString） ----> 最准确的方法
+    console.log(p.toString());
+    console.log(Object.prototype.toString.call(p))
+    // 所有的数据类型的父类都是Object, toString为Object的原型方法，默认返回[object xxx]，
+    // 但是有些复杂数据类型已经重写了toString()，所以需要使用apply/call来调用原始的toString方法
+
+
+    console.log(Object.prototype.toString.call(1))
+    console.log(Object.prototype.toString.call('a'))
+    console.log(Object.prototype.toString.call(false))
+    console.log(Object.prototype.toString.call(null))
+
+  </script>
+</body>
+
+</html>

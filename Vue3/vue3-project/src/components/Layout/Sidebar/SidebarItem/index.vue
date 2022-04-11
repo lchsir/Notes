@@ -67,14 +67,7 @@ export default {
 
 
 <style lang="scss" scoped>
-// ::v-deep .ant-menu-item {
-//   .ant-menu-title-content {
-//     a {
-//       color: red !important;
-//     }
-//   }
-// }
-::v-deep .ant-menu-item-selected {
+:deep(.ant-menu-item-selected) {
   background: #1890fd;
   .ant-menu-title-content {
     .routeLinkActive {

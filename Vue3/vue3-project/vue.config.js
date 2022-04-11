@@ -4,6 +4,8 @@ function resolve(dir){
     return path.join(__dirname,dir) //设置绝对路径
 }
 
+console.log(process.env.NODE_ENV)
+
 module.exports = {
   publicPath: '/',
   outputDir: 'dist',
@@ -35,6 +37,7 @@ module.exports = {
     }
   },
   devServer: {
+    port: '8091',
     proxy: {
       '/api': { // 路径中有 /api 的请求都会走这个代理 , 可以自己定义一个,下面移除即可
           target: 'http://v.juhe.cn/joke',    // 目标代理接口地址,实际跨域要访问的接口,这个地址会替换掉 axios.defaults.baseURL

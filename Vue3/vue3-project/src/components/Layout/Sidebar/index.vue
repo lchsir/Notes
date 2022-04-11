@@ -2,7 +2,6 @@
   <a-menu class="gome-menu"
           mode="inline"
           theme="dark"
-          :selectedKeys="selectedKeys"
           :openKeys="openKeys"
           :inline-collapsed="collapsed">
     <section class="logo-box">
@@ -27,7 +26,7 @@ export default {
     let store = useStore(); // 定义store
     const collapsed = computed(() => store.state.menu.collapsed) // 是否展开状态值
     const state = reactive({
-      selectedKeys: ['/gome'], // 当前选中的菜单项 key 数组
+      selectedKeys: ['/gome/home'], // 当前选中的菜单项 key 数组
       openKeys: ['/gome'], // 当前展开的 SubMenu 菜单项 key 数组
       menuData: [{
         name: 'Antd',
