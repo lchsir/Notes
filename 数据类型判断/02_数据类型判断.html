@@ -29,7 +29,7 @@
     // 4、toString （Object.prototype.toString） ----> 最准确的方法
     console.log(p.toString());
     console.log(Object.prototype.toString.call(p))
-    // 所有的数据类型的父类都是Object, toString为Object的原型方法，默认返回[object xxx]，
+    // 所有的数据类型的父类都是Object, toString为 Object的原型方法，默认返回[object xxx]，
     // 但是有些复杂数据类型已经重写了toString()，所以需要使用apply/call来调用原始的toString方法
 
 

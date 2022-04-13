@@ -79,3 +79,11 @@ var fn1 = fn
 var fn2 = fn
 var fn3 = fn
 
+
+
+
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+console.log(fruits.slice());
+
+var arr = [1, [2, 3, [4, 5]]]
+console.log(arr.toString())
